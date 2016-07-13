@@ -1,0 +1,31 @@
+body{
+	background: white;
+	margin:0;
+	padding:0;
+}
+
+.navigation {
+	li {
+		display:inline;
+		padding:20px;
+
+		a {
+			color:red;
+		}
+	}
+}
+
+
+.m-b-20 {
+	margin-bottom:20px;
+}
+
+
+.m-b-10 {
+	margin-bottom:10px;
+}
+
+
+textarea {
+	min-height:400px;
+}

@@ -1,0 +1,17 @@
+<h1 class="m-b-20">Login</h1>
+
+<div class="login">
+
+
+<div ng-show="controller.showAlert" class="alert alert-warning alert-dismissible" role="alert">
+<P>Get outtta here! 💩</P>
+</div>
+<form ng-submit="controller.submit()">
+<input class="m-b-20 form-control" type="text" placeholder="Username" ng-model="controller.form.username">
+<input class="m-b-20 form-control" type="text" placeholder="Username" ng-model="controller.form.password">
+
+<button type="submit" class="btn btn-primary">Login</button>
+</form>
+
+</div>
+
