@@ -1,11 +1,16 @@
 <h1>Blogs</h1>
 
+<form ng-submit="controller.search()">
+<input type="text" ng-model="controller.searchData" placeholder="Search Me">
+<input type="submit" value="Search">
+</form>
+
 <div ng-repeat="blog in controller.blogs" class="blogPosts">
 
-<a href="#/blog/{{blog._id}}"><h2 ng-bind-html="blog.title | to_trusted"></h2></a>
-<p>{{blog.description | cut:true:500}}
+<a href="#/blog/{{blog.id}}"><h2 ng-bind-html="blog.title | to_trusted"></h2></a>
+<p>{{blog.content | cut:true:500}}
 </p>
-<a class="btn btn-primary" href="#/blog/{{blog._id}}">Read More</a>
+<a class="btn btn-primary" href="#/blog/{{blog.id}}">Read More</a>
 
 </div>
 

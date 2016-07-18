@@ -3,7 +3,7 @@
     
     angular
     .module('starter')
-    .controller('adminController', function(API,$location) {
+    .controller('adminController', function(back,API,$location) {
        var vm = this;
 
        if(API.getToken() === null)
@@ -12,11 +12,11 @@
        }
 
        vm.submit = function(){
-        var postBlog = API.postBlog(vm.form);
+        var postBlog = back.postBlog(vm.form);
 
         postBlog.then(function(response) {
           console.log(response);
-          $location.path('blog/'+response.data.id._id);
+          $location.path('blog/'+response.data.__metadata.id);
           $scope.$apply();
         })
        }

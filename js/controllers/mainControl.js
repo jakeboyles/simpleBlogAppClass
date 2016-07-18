@@ -3,26 +3,24 @@
     
     angular
     .module('starter')
-    .controller('MainController', function(API) {
+    .controller('MainController', function(API,back,fileUpload) {
        var vm = this;
 
-
-       var BlogData = API.getBlogs();
+       var BlogData = back.getList();
 
        BlogData.then(function(results){
-       		var blogs = results.data.blogs;
-
-       		var blogs = blogs.reverse();
-
-       		var twoBlogs = [];
-
-       		for(var i=0;i<2;i++)
-       		{
-       			twoBlogs.push(blogs[i]);
-       		}
-
-       		vm.blogs = twoBlogs;
+       		 vm.blogs = results.data.data;
        });
-      
-    });
+
+      vm.submit = function(){
+       var loading = fileUpload.uploadImage('fileInput');
+       loading.then(function(results){
+        vm.url = results.data.url;
+       })
+
+      }
+
+
+
+   });   
 })();

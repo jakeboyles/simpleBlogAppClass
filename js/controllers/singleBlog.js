@@ -3,14 +3,15 @@
     
     angular
     .module('starter')
-    .controller('singleBlog', function(API,$stateParams) {
+    .controller('singleBlog', function(back,API,$stateParams) {
        var vm = this;
 
-       var singleBlog = API.getSingleBlog($stateParams.blogid);
+       var singleBlog = back.getSingleBlog($stateParams.blogid);
 
        singleBlog.then(function(results){
        		vm.blog = results.data;
        })
+
 
       
     });

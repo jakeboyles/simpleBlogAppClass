@@ -14,6 +14,10 @@
 				return gettingData;
 		 	}
 
+		 	var getTacos = function(){
+		 		return {success:true}
+		 	}
+
 
 		 	var getBlogs = function(){
 
@@ -47,10 +51,7 @@
 		 		var gettingData = $http({
 				  method: 'POST',
 				  data:data,
-				  headers: {
-				  	'X_CSRF_TOKEN':'M44ASR0FL0PJH3OLJ5RC',
-				  },
-				  url: "https://tiyagencyweek.herokuapp.com/blogs/create",
+				  url: Backand.getApiUrl() + '/1/objects/blogs',
 				});
 
 				return gettingData;
@@ -88,7 +89,8 @@
 		 		postBlog,
 		 		login,
 		 		saveToken,
-		 		getToken
+		 		getToken,
+		 		getTacos
 		 	}
 
 		 

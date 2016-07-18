@@ -3,16 +3,25 @@
     
     angular
     .module('starter')
-    .controller('allBlogs', function(API) {
+    .controller('allBlogs', function(back,API) {
        var vm = this;
 
 
-       var BlogData = API.getBlogs();
+       vm.search = function(){
+        var data = back.searchData(vm.searchData);
+
+        data.then(function(results){
+          var blogs = results.data.data;
+
+          vm.blogs = blogs;
+        })
+       }
+
+
+       var BlogData = back.getList();
 
        BlogData.then(function(results){
-       		var blogs = results.data.blogs;
-
-       		var blogs = blogs.reverse();
+       		var blogs = results.data.data;
 
        		vm.blogs = blogs;
        });

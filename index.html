@@ -25,23 +25,27 @@
 <body>
 
     <div class="container">
-       <nav class="navigation row">
-        <ul class="col-md-4 col-md-offset-8">
-            <li><a href="#/">Home</a></li>
-            <li><a ui-sref="blogs">Blogs</a></li>
-            <li><a href="#/login">Admin</a></li>
-        </ul>
-       </nav>
-    <div ui-view="main">
-    </div>
+        <nav class="navigation row">
+            <ul class="col-md-4 col-md-offset-8">
+                <li><a href="#/">Home</a></li>
+                <li><a ui-sref="blogs">Blogs</a></li>
+                <li><a href="#/login">Admin</a></li>
+            </ul>
+        </nav>
 
+        <div ui-view="main">
+        </div>
 
     </div>
 
 
 <!--link to JS file-->
+<script src="//cdn.backand.net/backand/dist/1.8.2/backand.min.js"></script>
+<script src="/node_modules/moment/moment.js"></script>
 <script src="js/main.js"></script>
 <script src="js/factories/api.js"></script>
+<script src="js/factories/backand.js"></script>
+<script src="js/factories/fileUpload.js"></script>
 <script src="js/directives/directive.js"></script>
 <script src="js/controllers/mainControl.js"></script>
 <script src="js/controllers/singleBlog.js"></script>

@@ -1,12 +1,31 @@
 <h2>Welcome To My Blog</h2>
-<h3>👻👻👻👻👻👻 Hello and welcome to my blog 👻👻👻👻👻👻👻👻</h3>
+<h3>Hello and welcome to my blog!</h3>
+
+<canvas id="myChart" width="300" height="50"></canvas>
+
 
 <div ng-repeat="blog in controller.blogs" class="blogPosts col-xs-6">
 
-<a href="#/blog/{{blog._id}}"><h2 ng-bind-html="blog.title | to_trusted"></h2></a>
-<p>{{blog.description | cut:true:500}}
+<a href="#/blog/{{blog.id}}"><h2 ng-bind-html="blog.title | to_trusted"></h2></a>
+<p>{{blog.content | cut:true:500}}
 </p>
 <a class="btn btn-primary" href="#/blog/{{blog._id}}">Read More</a>
 
+
+
+
+
 </div>
 
+
+
+<form ng-submit="controller.submit();" role="form" name="uploadForm">
+    <div class="row">
+        <img ng-src="" ng-show="controller.imageUrl" />
+        <input id="fileInput" type="file" accept="*/*" ng-model="controller.filename" />
+        <input type="submit" value="GO">
+
+    </div>
+  </form>
+
+  <h2>{{controller.url}}</h2>
