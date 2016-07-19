@@ -2,13 +2,35 @@
 
 <div class="admin">
 
+
+<h3>Add New Item</h3>
 <form ng-submit="controller.submit()">
-<input class="m-b-20 form-control" type="text" placeholder="Title" ng-model="controller.form.title">
+	<input class="m-b-20 form-control" type="text" placeholder="Title" ng-model="controller.form.title">
 
-<div text-angular ng-model="controller.form.content"></div>
+	<div text-angular ng-model="controller.form.content"></div>
 
-<button type="submit" class="btn btn-primary">POST</button>
+	<button type="submit" class="btn btn-primary">POST</button>
 </form>
+
+<table>
+	<thead>
+		<tr>
+			<th>Id</th>
+			<th>Title</th>
+			<th>Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="blog in controller.blogs">
+			<td>{{blog.id}}</td>
+			<td>{{blog.title}}</td>
+			<td>
+			<a href="#/blog/edit/{{blog.id}}"><i class="fa fa-pencil"></i></a>
+
+			<i ng-click="controller.removeItem(blog.id)" class="fa fa-trash"></i></td>
+		</tr>
+	</tbody>
+</table>
 
 </div>
 

@@ -29,3 +29,22 @@ body{
 textarea {
 	min-height:400px;
 }
+
+
+table {
+	width:100%;
+	margin-bottom:40px;
+
+	tr,th {
+		padding:20px;
+		text-align:center;
+
+		i {
+			margin-right:10px;
+		}
+	}
+
+	tr:nth-child(even){
+		background-color:darken(#fff,10);
+	}
+}

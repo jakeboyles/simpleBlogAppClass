@@ -5,14 +5,50 @@
 		 .factory('back', function($http,Backand) {
 
 
+
+		 	var postBlog = function(data){
+		 		return $http ({
+				  method: 'POST',
+				  data:data,
+				  url: Backand.getApiUrl() + '/1/objects/blogs',
+				});
+		 	}
+
+
+		 	var editBlog = function(data,id) {
+		 		return $http ({
+				  method: 'PUT',
+				  data:data,
+				  url: Backand.getApiUrl() + '/1/objects/blogs/'+id,
+				});
+		 	}
+
+
+		 	var removeItem = function(id){
+		 		return $http ({
+				  method: 'DELETE',
+				  url: Backand.getApiUrl() + '/1/objects/blogs/'+id,
+				});
+		 	}
+
+
 		 	var getList = function(name, sort, filter) {
 
 		        var data = $http ({
 				  method: 'GET',
-				  url: "https://api.backand.com:443/1/objects/blogs?sort=%5B%7BfieldName%3A'id'%2Corder%3A'desc'%7D%5D",
+				  url: Backand.getApiUrl() +"/1/objects/blogs?deep=true",
 				});
 
 				return data;
+		    }
+
+		    var updateBlog = function(id, title) {
+		    	var data = $http({
+		    		method:"PUT",
+		    		data:{title:"UPDATED"},
+		    		url:'https://api.backand.com:443/1/objects/blogs/1'
+		    	});
+		    	return data;
 		    }
 
 
@@ -27,23 +63,23 @@
 
 		    }
 
-		    var postBlog = function(data)
-		 	{
-		 		var gettingData = $http({
-				  method: 'POST',
-				  data:data,
-				  url: Backand.getApiUrl() + '/1/objects/blogs',
-				});
+		  //   var postBlog = function(data)
+		 	// {
+		 	// 	var gettingData = $http({
+				//   method: 'POST',
+				//   data:data,
+				//   url: Backand.getApiUrl() + '/1/objects/blogs',
+				// });
 
-				return gettingData;
+				// return gettingData;
 
-		 	}
+		 	// }
 
-		 	var getSingleBlog = function(data)
+		 	var getSingleBlog = function(id)
 		 	{
 		 		var gettingData = $http({
 				  method: 'GET',
-				  url: Backand.getApiUrl() + '/1/objects/blogs/'+data
+				  url: Backand.getApiUrl() + '/1/objects/blogs/'+id
 				});
 
 				return gettingData;
@@ -52,9 +88,12 @@
 		 	
 		 	return {
 		 		getList,
-		 		postBlog,
 		 		getSingleBlog,
-		 		searchData
+		 		searchData,
+		 		updateBlog,
+		 		postBlog,
+		 		removeItem,
+		 		editBlog
 		 	}
 
 		 

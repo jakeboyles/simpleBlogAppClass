@@ -1,7 +1,6 @@
 <h2>Welcome To My Blog</h2>
 <h3>Hello and welcome to my blog!</h3>
 
-<canvas id="myChart" width="300" height="50"></canvas>
 
 
 <div ng-repeat="blog in controller.blogs" class="blogPosts col-xs-6">
@@ -21,7 +20,6 @@
 
 <form ng-submit="controller.submit();" role="form" name="uploadForm">
     <div class="row">
-        <img ng-src="" ng-show="controller.imageUrl" />
         <input id="fileInput" type="file" accept="*/*" ng-model="controller.filename" />
         <input type="submit" value="GO">
 
@@ -29,3 +27,8 @@
   </form>
 
   <h2>{{controller.url}}</h2>
+
+
+
+<h2>Weather Data for the week</h2>
+  <canvas id="myChart" width="200" height="80"></canvas>

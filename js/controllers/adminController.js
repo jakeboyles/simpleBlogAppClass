@@ -11,6 +11,17 @@
         $state.go('login');
        }
 
+
+       vm.removeItem = function(id)
+       {
+          var deleteAPI = back.removeItem(id);
+
+          deleteAPI.then(function(response){
+            console.log(response);
+            getItems();
+          })
+       }
+
        vm.submit = function(){
         var postBlog = back.postBlog(vm.form);
 
@@ -20,6 +31,16 @@
           $scope.$apply();
         })
        }
+
+
+      var getItems = function(){
+         var getBlogs = back.getList();
+         getBlogs.then(function(response){
+          vm.blogs = response.data.data;
+         })
+      };
+
+      getItems();
       
     });
 })();

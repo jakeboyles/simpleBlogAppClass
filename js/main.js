@@ -60,6 +60,16 @@
 		      }
 		  },
 	    })
+      .state('editSingle', {
+        url: '/blog/edit/:blogid',
+        views: {
+          'main': {
+            templateUrl: '../views/edit.html',
+            controller: 'editBlog',
+            controllerAs: 'controller'
+          }
+        },
+      });
 
 	})
     .filter('to_trusted', ['$sce', function($sce){
