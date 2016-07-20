@@ -6,6 +6,7 @@
 <div ng-repeat="blog in controller.blogs" class="blogPosts col-xs-6">
 
 <a href="#/blog/{{blog.id}}"><h2 ng-bind-html="blog.title | to_trusted"></h2></a>
+<p>By:{{blog.author_obj.email}}</p>
 <p>{{blog.content | cut:true:500}}
 </p>
 <a class="btn btn-primary" href="#/blog/{{blog._id}}">Read More</a>

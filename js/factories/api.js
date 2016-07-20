@@ -14,61 +14,21 @@
 				return gettingData;
 		 	}
 
-		 	var getTacos = function(){
-		 		return {success:true}
-		 	}
-
-
-		 	var getBlogs = function(){
-
-
-		 		var gettingData = $http({
-				  method: 'GET',
-				  headers: {
-				  	'X_CSRF_TOKEN':'M44ASR0FL0PJH3OLJ5RC',
-				  },
-				  url: "https://tiyagencyweek.herokuapp.com/blogs"
-				});
-
-				return gettingData;
-		 	}
-
-		 	var getSingleBlog = function(id)
+		 	var saveUserId = function(userid)
 		 	{
-		 		var gettingData = $http({
-				  method: 'GET',
-				  headers: {
-				  	'X_CSRF_TOKEN':'M44ASR0FL0PJH3OLJ5RC',
-				  },
-				  url: "https://tiyagencyweek.herokuapp.com/blogs/"+id
-				});
-
-				return gettingData;
+		 		localStorage.setItem('userID',userid);
 		 	}
 
-		 	var postBlog = function(data)
+		 	var getUserId = function()
 		 	{
-		 		var gettingData = $http({
-				  method: 'POST',
-				  data:data,
-				  url: Backand.getApiUrl() + '/1/objects/blogs',
-				});
-
-				return gettingData;
-
+		 		return localStorage.getItem('userID');
 		 	}
 
-
-		 	var login = function(data)
+		 	var logout = function()
 		 	{
-		 		var gettingData = $http({
-				  method: 'POST',
-				  data:data,
-				  url: "https://tiyagencyweek.herokuapp.com/auth/login",
-				});
-
-				return gettingData;
-
+		 		localStorage.removeItem('userID');
+		 		localStorage.removeItem('token');
+		 		return true;
 		 	}
 
 
@@ -84,13 +44,11 @@
 		 	
 		 	return {
 		 		getWeatherData,
-		 		getBlogs,
-		 		getSingleBlog,
-		 		postBlog,
-		 		login,
 		 		saveToken,
 		 		getToken,
-		 		getTacos
+		 		getUserId,
+		 		saveUserId,
+		 		logout
 		 	}
 
 		 

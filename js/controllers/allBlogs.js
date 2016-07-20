@@ -11,7 +11,6 @@
         var data = back.searchData(vm.searchData);
 
         data.then(function(results){
-          console.log(results);
           var blogs = results.data.data;
 
           vm.blogs = blogs;
@@ -22,7 +21,8 @@
        var BlogData = back.getList();
 
        BlogData.then(function(results){
-       		var blogs = results.data.data;
+        console.log(results);
+       		var blogs = results.data;
 
        		vm.blogs = blogs;
        });

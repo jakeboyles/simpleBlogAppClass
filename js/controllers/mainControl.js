@@ -10,9 +10,7 @@
        var ctx = document.getElementById("myChart").getContext("2d");
 
 
-      
-
-
+    
       var weatherData = API.getWeatherData('cincinnati');
       weatherData.then(function(response){
         var data = response.data.list;
@@ -55,7 +53,7 @@
        var BlogData = back.getList();
 
        BlogData.then(function(results){
-       		 vm.blogs = results.data.data;
+       		 vm.blogs = results.data;
        });
 
       vm.submit = function(){

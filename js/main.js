@@ -69,6 +69,16 @@
             controllerAs: 'controller'
           }
         },
+      })
+      .state('register', {
+        url: '/register',
+        views: {
+          'main': {
+            templateUrl: '../views/register.html',
+            controller: 'registerController',
+            controllerAs: 'controller'
+          }
+        },
       });
 
 	})
