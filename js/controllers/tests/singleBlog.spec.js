@@ -8,16 +8,23 @@ describe('SingleBlog', function() {
   }));
 
   describe('Single Blog Testing', function() {
+
+    var $scope = {};
+      
     it('Testing calculate function from controller', function() {
-
-      var $scope = {};
       var controller = $controller('singleBlog',{$scope:$scope});
-
       controller.firstName = "Jarrod";
       expect(controller.fullName("Jarrod")).toEqual("Jarrod Boyles");
+    });
 
+    it('test subtraction',function(){
+      var controller = $controller('singleBlog',{$scope:$scope});
       expect(controller.subtraction(10,5)).toEqual(5);
+    });
 
+    it('testing animals',function(){
+      var controller = $controller('singleBlog',{$scope:$scope});
+      
       var animal = {
         type:"hippo",
         name:"mr hippo",
@@ -25,7 +32,6 @@ describe('SingleBlog', function() {
       };
 
       expect(controller.checkSound(animal)).toEqual('meow');
-
-    });
+    })
   });
 });
