@@ -22,9 +22,9 @@ describe('SingleBlog', function() {
         type:"hippo",
         name:"mr hippo",
         sound:"meow",
-      }
-      expect(controller.checkSound(animal)).toEqual('meow');
+      };
 
+      expect(controller.checkSound(animal)).toEqual('meow');
 
     });
   });

@@ -4,14 +4,13 @@
     angular
     .module('starter')
     .controller('MainController', function(API,back,fileUpload) {
-       var vm = this;
+      var vm = this;
 
-       var ctx = document.getElementById("myChart");
+      var ctx = document.getElementById("myChart");
 
-
-    
       var weatherData = API.getWeatherData('cincinnati');
       weatherData.then(function(response){
+
         var data = response.data.list;
 
         var tempsMap = data.map(function(day){
@@ -23,10 +22,9 @@
         });
 
         var DaysMap = data.map(function(day){
-          var day = moment.unix(day.dt).format("dddd");
+          day = moment.unix(day.dt).format("dddd");
           return day;
-        })
-
+        });
 
         var myChart = new Chart(ctx, {
             type: 'bar',
@@ -45,24 +43,20 @@
                 ]
             },
         });
+      });
 
+    var BlogData = back.getList();
 
-      })
+    BlogData.then(function(results){
+     vm.blogs = results.data;
+    });
 
-       var BlogData = back.getList();
-
-       BlogData.then(function(results){
-       		 vm.blogs = results.data;
-       });
-
-      vm.submit = function(){
-       var loading = fileUpload.uploadImage('fileInput');
-       loading.then(function(results){
-        vm.url = results.data.url;
-       })
-
-      }
-
+    vm.submit = function(){
+     var loading = fileUpload.uploadImage('fileInput');
+     loading.then(function(results){
+      vm.url = results.data.url;
+     });
+    };
 
    });   
 })();

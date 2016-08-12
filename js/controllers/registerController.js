@@ -14,8 +14,8 @@
             API.saveToken(results.config.data.token);
             API.saveUserId(results.data.__metadata.id);
             $state.go('admin');
-          })
-       }
+          });
+       };
       
     });
 })();

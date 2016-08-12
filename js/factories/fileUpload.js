@@ -4,10 +4,10 @@
 		.module('starter')
 		.factory('fileUpload', function($http,Backand,$q) {
 
-		const baseUrl = '/1/objects/';
-		const baseActionUrl = baseUrl + 'action/'
-		const objectName = 'items';
-		const filesActionName = 'files';
+		var baseUrl = '/1/objects/';
+		var baseActionUrl = baseUrl + 'action/';
+		var objectName = 'items';
+		var filesActionName = 'files';
 
 		var uploadImage = function(id) {
 			var file = document.getElementById(id);
@@ -43,8 +43,8 @@
 		};
 
 	 	return {
-	 		uploadImage
-	 	}
+	 		uploadImage:uploadImage,
+	 	};
 
 	});
 })();

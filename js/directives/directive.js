@@ -15,11 +15,10 @@
 
 	    	promise.then(function(results){
 	    		vm.data = results.data;
-	    	})
-
+	    	});
 	    }
 	  };
-	})
+	});
 })();
 
 

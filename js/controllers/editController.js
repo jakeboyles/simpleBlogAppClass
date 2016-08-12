@@ -18,7 +18,7 @@
        var singlePost = back.getSingleBlog(blogId);
        singlePost.then(function(response){
         vm.form = response.data;
-       })
+       });
 
 
 
@@ -28,14 +28,14 @@
         editBlog.then(function(response) {
           if(response.status === 200)
           {
-            $state.go('admin')
+            $state.go('admin');
           }
           else
           {
-            alert("IT DIDNT WORK 😡")
+            alert("IT DIDNT WORK 😡");
           }
-        })
-       }
+        });
+       };
       
     });
 })();

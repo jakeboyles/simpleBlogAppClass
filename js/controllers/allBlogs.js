@@ -14,8 +14,8 @@
           var blogs = results.data.data;
 
           vm.blogs = blogs;
-        })
-       }
+        });
+       };
 
 
        var BlogData = back.getList();

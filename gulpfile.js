@@ -15,7 +15,7 @@ gulp.task('sass', function () {
 	)});
 
 gulp.task('lint', function() {
-  return gulp.src(['./js/*.js','./js/**/*.js', "!./js/moment.js"])
+  return gulp.src(['./js/*.js','./js/**/*.js', "!./js/moment.js","!./js/backand.js"])
     .pipe(jshint())
     .pipe(jshint.reporter('default'));
 });
@@ -28,6 +28,6 @@ gulp.task('browserSync', function() {
   })
 })
  
-gulp.task('watch',['browserSync','sass'], function () {
+gulp.task('watch',['browserSync','sass','lint'], function () {
   gulp.watch(['./sass/*.scss','./js/*.js','./js/**/*.js','./*.html','./views/**/*.html', './views/partials/**/*.html'], ['sass','lint']);
 });
