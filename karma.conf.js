@@ -18,8 +18,11 @@ module.exports = function(config) {
     './node_modules/angular/angular.js',                             // angular
     './node_modules/angular-ui-router/release/angular-ui-router.js', // ui-router
     './node_modules/angular-mocks/angular-mocks.js',                 // loads our modules for tests                                 // our Users factory
-    './js/main.js',   
+    './js/main.js',  
+    './js/factories/backand.js',
+    './js/factories/fileUpload.js', 
     './js/factories/api.js',
+    './js/backand.js',
     './js/controllers/singleBlog.js',
     './js/controllers/mainControl.js',
     './node_modules/textangular/dist/textAngular-rangy.min.js',
